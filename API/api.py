@@ -1,10 +1,9 @@
 import requests
 import json
 
-def update_account_info_via_api(username, password, title, name, location, day=30, month=12, year=1994, gender=1):
-    co = get_cookie(username, password)
+def update_account_info_via_api(cookie, title, name, location, day=30, month=12, year=1994, gender=1):
     ses = requests.Session()
-    ses.cookies = co
+    ses.cookies = cookie
     headers = {'Content-Type': 'application/x-www-form-urlencoded'}
     datas = {
         "Title":title.encode(encoding='UTF-8'),
@@ -28,5 +27,4 @@ def get_cookie(username, password):
     headers = {'Content-Type': 'application/x-www-form-urlencoded'}
     r = ses.post('https://gamevui.vn/account/login', data='UserName='+username+'&Password='+password, allow_redirects=False, headers=headers)
     print(r.status_code)
-    print(r.headers)
     return ses.cookies

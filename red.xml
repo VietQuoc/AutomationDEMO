@@ -7,7 +7,10 @@
     <referencedLibrary type="PYTHON" name="api" path="AutomationDEMO/API"/>
     <pythonpath/>
     <classpath/>
-    <excludedForValidation/>
+    <excludedForValidation>
+        <excludedPath path="UI/TestCase/Test.robot"/>
+        <excludedPath path=""/>
+    </excludedForValidation>
     <isValidatedFileSizeCheckingEnabled>true</isValidatedFileSizeCheckingEnabled>
     <validatedFileMaxSize>1024</validatedFileMaxSize>
     <isReferencedLibrariesAutoReloadEnabled>true</isReferencedLibrariesAutoReloadEnabled>
