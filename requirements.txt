@@ -1,0 +1,17 @@
+certifi
+decorator
+docutils
+fake-factory
+lxml
+requests
+robotframework
+robotframework-faker
+robotframework-pabot
+robotframework-selenium2library
+robotremoteserver
+Pillow
+urllib3
+selenium
+six
+robotframework-SikuliLibrary
+robotframework-extendedrequestslibrary
