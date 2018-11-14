@@ -17,14 +17,19 @@
 		</buildCommand>
 	</buildSpec>
 	<natures>
-		<nature>org.robotframework.ide.eclipse.main.plugin.robotNature</nature>
 		<nature>org.python.pydev.pythonNature</nature>
+		<nature>org.robotframework.ide.eclipse.main.plugin.robotNature</nature>
 	</natures>
 	<linkedResources>
 		<link>
 			<name>libspecs/RequestsLibrary.py</name>
 			<type>1</type>
 			<location>C:/Program Files/Python36/lib/site-packages/RequestsLibrary/RequestsKeywords.py</location>
+		</link>
+		<link>
+			<name>libspecs/Selenium2Library.py</name>
+			<type>1</type>
+			<location>C:/Python27/Lib/site-packages/Selenium2Library/__init__.py</location>
 		</link>
 	</linkedResources>
 </projectDescription>

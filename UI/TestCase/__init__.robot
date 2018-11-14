@@ -1,10 +1,8 @@
 *** Settings ***
-Library    Selenium2Library    
+Library    ExtendedSelenium2Library    
 Library    api
 Suite Setup    Setup For WebClient Suite
-
-*** Variables ***
-${HOME_PAGE_URL}    https://gamevui.vn/
+Suite Teardown    Close All Browsers
 
 *** Keywords ***
 Setup For WebClient Suite
@@ -12,4 +10,5 @@ Setup For WebClient Suite
     
     ${COOKIE}=    Get Cookie Api    ${USER_NAME}    ${PASSWORD}
     Set Global Variable    ${COOKIE}    ${COOKIE}
-    Open Browser    ${HOME_PAGE_URL}    browser=chrome    alias=MainUser
+    Open Browser    about:blank    browser=chrome    alias=MainUser
+    Maximize Browser Window

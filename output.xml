@@ -1,0 +1,498 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20181114 11:24:14.998" generator="Robot 3.0.2 (Python 2.7.15 on win32)">
+<suite source="C:\Users\QuocNV4\Desktop\All\Repo\AutomationDEMO" id="s1" name="AutomationDEMO">
+<suite source="C:\Users\QuocNV4\Desktop\All\Repo\AutomationDEMO\UI" id="s1-s1" name="UI">
+<suite source="C:\Users\QuocNV4\Desktop\All\Repo\AutomationDEMO\UI\TestCase" id="s1-s1-s1" name="TestCase">
+<kw type="setup" name="Setup For WebClient Suite">
+<doc>Makes an initial setup needed before executing the set of suites.</doc>
+<kw name="Get Cookie Api" library="api">
+<arguments>
+<arg>${USER_NAME}</arg>
+<arg>${PASSWORD}</arg>
+</arguments>
+<assign>
+<var>${COOKIE}</var>
+</assign>
+<msg timestamp="20181114 11:24:18.654" level="INFO">302</msg>
+<msg timestamp="20181114 11:24:18.654" level="INFO">${COOKIE} = &lt;RequestsCookieJar[&lt;Cookie .ma=ACD341116360753A0A4F95D54A6876435F5C682FEAAD241D1DFADE2D5D3DF3F0B64D3591844760B297CECC2D8F8C78AF89D31D98082ED2F266D410566483BDF626A91EBAA15EC085E0FEA5437B240F97C3B370357...</msg>
+<status status="PASS" endtime="20181114 11:24:18.654" starttime="20181114 11:24:15.368"></status>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<arguments>
+<arg>${COOKIE}</arg>
+<arg>${COOKIE}</arg>
+</arguments>
+<msg timestamp="20181114 11:24:18.654" level="INFO">${COOKIE} = &lt;RequestsCookieJar[&lt;Cookie .ma=ACD341116360753A0A4F95D54A6876435F5C682FEAAD241D1DFADE2D5D3DF3F0B64D3591844760B297CECC2D8F8C78AF89D31D98082ED2F266D410566483BDF626A91EBAA15EC085E0FEA5437B240F97C3B370357...</msg>
+<status status="PASS" endtime="20181114 11:24:18.670" starttime="20181114 11:24:18.654"></status>
+</kw>
+<kw name="Open Browser" library="ExtendedSelenium2Library">
+<doc>Opens a new browser instance to given URL.</doc>
+<arguments>
+<arg>about:blank</arg>
+<arg>browser=chrome</arg>
+<arg>alias=MainUser</arg>
+</arguments>
+<msg timestamp="20181114 11:24:18.670" level="INFO">Opening browser 'chrome' to base url 'about:blank'</msg>
+<status status="PASS" endtime="20181114 11:24:21.579" starttime="20181114 11:24:18.670"></status>
+</kw>
+<kw name="Maximize Browser Window" library="ExtendedSelenium2Library">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" endtime="20181114 11:24:22.701" starttime="20181114 11:24:21.579"></status>
+</kw>
+<status status="PASS" endtime="20181114 11:24:22.702" starttime="20181114 11:24:15.368"></status>
+</kw>
+<suite source="C:\Users\QuocNV4\Desktop\All\Repo\AutomationDEMO\UI\TestCase\LoginPage.robot" id="s1-s1-s1-s1" name="LoginPage">
+<test id="s1-s1-s1-s1-t1" name="Verify UI On Login Page">
+<kw name="Goto Login Page" library="LoginPage_Keyword">
+<kw name="Go To" library="ExtendedSelenium2Library">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${LOGIN_PAGE_URL}</arg>
+</arguments>
+<msg timestamp="20181114 11:24:22.720" level="INFO">Opening url 'https://gamevui.vn/account/login'</msg>
+<status status="PASS" endtime="20181114 11:24:24.652" starttime="20181114 11:24:22.719"></status>
+</kw>
+<status status="PASS" endtime="20181114 11:24:24.652" starttime="20181114 11:24:22.719"></status>
+</kw>
+<kw name="Verify All Control Show On Login Page" library="LoginPage_Keyword">
+<doc>Verify all control show on this page</doc>
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<arguments>
+<arg>Wait Until Element Is Visible</arg>
+<arg>${LOGIN_PAGE_HEADER}</arg>
+<arg>${MEDIUM_TIME_WAIT}</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="ExtendedSelenium2Library">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${LOGIN_PAGE_HEADER}</arg>
+<arg>${MEDIUM_TIME_WAIT}</arg>
+</arguments>
+<status status="PASS" endtime="20181114 11:24:24.690" starttime="20181114 11:24:24.654"></status>
+</kw>
+<status status="PASS" endtime="20181114 11:24:24.691" starttime="20181114 11:24:24.653"></status>
+</kw>
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<arguments>
+<arg>Wait Until Element Is Visible</arg>
+<arg>${LOGIN_PAGE_TITLE}</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="ExtendedSelenium2Library">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${LOGIN_PAGE_TITLE}</arg>
+</arguments>
+<status status="PASS" endtime="20181114 11:24:24.715" starttime="20181114 11:24:24.691"></status>
+</kw>
+<status status="PASS" endtime="20181114 11:24:24.715" starttime="20181114 11:24:24.691"></status>
+</kw>
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<arguments>
+<arg>Wait Until Element Is Visible</arg>
+<arg>${FACEBOOK_LOGIN_BUTTON}</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="ExtendedSelenium2Library">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${FACEBOOK_LOGIN_BUTTON}</arg>
+</arguments>
+<status status="PASS" endtime="20181114 11:24:24.743" starttime="20181114 11:24:24.716"></status>
+</kw>
+<status status="PASS" endtime="20181114 11:24:24.744" starttime="20181114 11:24:24.716"></status>
+</kw>
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<arguments>
+<arg>Wait Until Element Is Visible</arg>
+<arg>${GOOGLE_LOGIN_BUTTON}</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="ExtendedSelenium2Library">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${GOOGLE_LOGIN_BUTTON}</arg>
+</arguments>
+<status status="PASS" endtime="20181114 11:24:24.770" starttime="20181114 11:24:24.745"></status>
+</kw>
+<status status="PASS" endtime="20181114 11:24:24.770" starttime="20181114 11:24:24.744"></status>
+</kw>
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<arguments>
+<arg>Wait Until Element Is Visible</arg>
+<arg>${USERNAME_TXT}</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="ExtendedSelenium2Library">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${USERNAME_TXT}</arg>
+</arguments>
+<status status="PASS" endtime="20181114 11:24:24.796" starttime="20181114 11:24:24.771"></status>
+</kw>
+<status status="PASS" endtime="20181114 11:24:24.796" starttime="20181114 11:24:24.770"></status>
+</kw>
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<arguments>
+<arg>Wait Until Element Is Visible</arg>
+<arg>${PASSWORD_TXT}</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="ExtendedSelenium2Library">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${PASSWORD_TXT}</arg>
+</arguments>
+<status status="PASS" endtime="20181114 11:24:24.820" starttime="20181114 11:24:24.797"></status>
+</kw>
+<status status="PASS" endtime="20181114 11:24:24.821" starttime="20181114 11:24:24.796"></status>
+</kw>
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<arguments>
+<arg>Wait Until Element Is Visible</arg>
+<arg>${LOGIN_BUTTON}</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="ExtendedSelenium2Library">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${LOGIN_BUTTON}</arg>
+</arguments>
+<status status="PASS" endtime="20181114 11:24:24.844" starttime="20181114 11:24:24.822"></status>
+</kw>
+<status status="PASS" endtime="20181114 11:24:24.844" starttime="20181114 11:24:24.821"></status>
+</kw>
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<arguments>
+<arg>Wait Until Element Is Visible</arg>
+<arg>${SIGNUP_LINK}</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="ExtendedSelenium2Library">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${SIGNUP_LINK}</arg>
+</arguments>
+<status status="PASS" endtime="20181114 11:24:24.861" starttime="20181114 11:24:24.845"></status>
+</kw>
+<status status="PASS" endtime="20181114 11:24:24.861" starttime="20181114 11:24:24.844"></status>
+</kw>
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<arguments>
+<arg>Wait Until Element Is Visible</arg>
+<arg>${FORGET_USER_LINK}</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="ExtendedSelenium2Library">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${FORGET_USER_LINK}</arg>
+</arguments>
+<status status="PASS" endtime="20181114 11:24:24.892" starttime="20181114 11:24:24.861"></status>
+</kw>
+<status status="PASS" endtime="20181114 11:24:24.892" starttime="20181114 11:24:24.861"></status>
+</kw>
+<status status="PASS" endtime="20181114 11:24:24.892" starttime="20181114 11:24:24.653"></status>
+</kw>
+<kw name="Verify Button Color On Login Page" library="LoginPage_Keyword">
+<doc>Verify button login, login via google, login via facebook</doc>
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<arguments>
+<arg>Verify Color Of Css Element</arg>
+<arg>${LOGIN_BUTTON}</arg>
+<arg>${LOGIN_BUTTON_COLOR}</arg>
+</arguments>
+<kw name="Verify Color Of Css Element" library="Keywords">
+<doc>Get color of element via css and compare with expected color</doc>
+<arguments>
+<arg>${LOGIN_BUTTON}</arg>
+<arg>${LOGIN_BUTTON_COLOR}</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="ExtendedSelenium2Library">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${locator}</arg>
+</arguments>
+<status status="PASS" endtime="20181114 11:24:24.908" starttime="20181114 11:24:24.892"></status>
+</kw>
+<kw name="Get Webelement" library="ExtendedSelenium2Library">
+<doc>Returns the first WebElement matching the given locator.</doc>
+<arguments>
+<arg>${locator}</arg>
+</arguments>
+<assign>
+<var>${element}</var>
+</assign>
+<msg timestamp="20181114 11:24:24.908" level="INFO">${element} = &lt;selenium.webdriver.remote.webelement.WebElement (session="93d3c2e89659c9a6346f55253495ac8f", element="0.18616699740432763-7")&gt;</msg>
+<status status="PASS" endtime="20181114 11:24:24.908" starttime="20181114 11:24:24.908"></status>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<arguments>
+<arg>${element}</arg>
+<arg>value_of_css_property</arg>
+<arg>background-color</arg>
+</arguments>
+<assign>
+<var>${element_color}</var>
+</assign>
+<msg timestamp="20181114 11:24:24.924" level="INFO">${element_color} = rgba(218, 37, 28, 1)</msg>
+<status status="PASS" endtime="20181114 11:24:24.924" starttime="20181114 11:24:24.908"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${color}</arg>
+<arg>${element_color}</arg>
+</arguments>
+<status status="PASS" endtime="20181114 11:24:24.924" starttime="20181114 11:24:24.924"></status>
+</kw>
+<status status="PASS" endtime="20181114 11:24:24.924" starttime="20181114 11:24:24.892"></status>
+</kw>
+<status status="PASS" endtime="20181114 11:24:24.924" starttime="20181114 11:24:24.892"></status>
+</kw>
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<arguments>
+<arg>Verify Color Of Css Element</arg>
+<arg>${GOOGLE_LOGIN_BUTTON}</arg>
+<arg>${GOOGLE_LOGIN_BUTTON_COLOR}</arg>
+</arguments>
+<kw name="Verify Color Of Css Element" library="Keywords">
+<doc>Get color of element via css and compare with expected color</doc>
+<arguments>
+<arg>${GOOGLE_LOGIN_BUTTON}</arg>
+<arg>${GOOGLE_LOGIN_BUTTON_COLOR}</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="ExtendedSelenium2Library">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${locator}</arg>
+</arguments>
+<status status="PASS" endtime="20181114 11:24:24.924" starttime="20181114 11:24:24.924"></status>
+</kw>
+<kw name="Get Webelement" library="ExtendedSelenium2Library">
+<doc>Returns the first WebElement matching the given locator.</doc>
+<arguments>
+<arg>${locator}</arg>
+</arguments>
+<assign>
+<var>${element}</var>
+</assign>
+<msg timestamp="20181114 11:24:24.946" level="INFO">${element} = &lt;selenium.webdriver.remote.webelement.WebElement (session="93d3c2e89659c9a6346f55253495ac8f", element="0.18616699740432763-4")&gt;</msg>
+<status status="PASS" endtime="20181114 11:24:24.947" starttime="20181114 11:24:24.940"></status>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<arguments>
+<arg>${element}</arg>
+<arg>value_of_css_property</arg>
+<arg>background-color</arg>
+</arguments>
+<assign>
+<var>${element_color}</var>
+</assign>
+<msg timestamp="20181114 11:24:24.956" level="INFO">${element_color} = rgba(66, 133, 244, 1)</msg>
+<status status="PASS" endtime="20181114 11:24:24.956" starttime="20181114 11:24:24.948"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${color}</arg>
+<arg>${element_color}</arg>
+</arguments>
+<status status="PASS" endtime="20181114 11:24:24.957" starttime="20181114 11:24:24.956"></status>
+</kw>
+<status status="PASS" endtime="20181114 11:24:24.957" starttime="20181114 11:24:24.924"></status>
+</kw>
+<status status="PASS" endtime="20181114 11:24:24.957" starttime="20181114 11:24:24.924"></status>
+</kw>
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<arguments>
+<arg>Verify Color Of Css Element</arg>
+<arg>${FACEBOOK_LOGIN_BUTTON}</arg>
+<arg>${FACEBOOK_LOGIN_BUTTON_COLOR}</arg>
+</arguments>
+<kw name="Verify Color Of Css Element" library="Keywords">
+<doc>Get color of element via css and compare with expected color</doc>
+<arguments>
+<arg>${FACEBOOK_LOGIN_BUTTON}</arg>
+<arg>${FACEBOOK_LOGIN_BUTTON_COLOR}</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="ExtendedSelenium2Library">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${locator}</arg>
+</arguments>
+<status status="PASS" endtime="20181114 11:24:24.970" starttime="20181114 11:24:24.959"></status>
+</kw>
+<kw name="Get Webelement" library="ExtendedSelenium2Library">
+<doc>Returns the first WebElement matching the given locator.</doc>
+<arguments>
+<arg>${locator}</arg>
+</arguments>
+<assign>
+<var>${element}</var>
+</assign>
+<msg timestamp="20181114 11:24:24.977" level="INFO">${element} = &lt;selenium.webdriver.remote.webelement.WebElement (session="93d3c2e89659c9a6346f55253495ac8f", element="0.18616699740432763-3")&gt;</msg>
+<status status="PASS" endtime="20181114 11:24:24.977" starttime="20181114 11:24:24.971"></status>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<arguments>
+<arg>${element}</arg>
+<arg>value_of_css_property</arg>
+<arg>background-color</arg>
+</arguments>
+<assign>
+<var>${element_color}</var>
+</assign>
+<msg timestamp="20181114 11:24:24.986" level="INFO">${element_color} = rgba(59, 89, 152, 1)</msg>
+<status status="PASS" endtime="20181114 11:24:24.986" starttime="20181114 11:24:24.978"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${color}</arg>
+<arg>${element_color}</arg>
+</arguments>
+<status status="PASS" endtime="20181114 11:24:24.987" starttime="20181114 11:24:24.986"></status>
+</kw>
+<status status="PASS" endtime="20181114 11:24:24.987" starttime="20181114 11:24:24.958"></status>
+</kw>
+<status status="PASS" endtime="20181114 11:24:24.987" starttime="20181114 11:24:24.958"></status>
+</kw>
+<status status="PASS" endtime="20181114 11:24:24.988" starttime="20181114 11:24:24.892"></status>
+</kw>
+<doc>Verify All control display on login page</doc>
+<status status="PASS" endtime="20181114 11:24:24.988" critical="yes" starttime="20181114 11:24:22.718"></status>
+</test>
+<test id="s1-s1-s1-s1-t2" name="Verify That User Can Login Successfully With Correct Username And Password">
+<kw name="Log In" library="LoginPage_Keyword">
+<doc>Log in to this page via UI with given username and password</doc>
+<arguments>
+<arg>${USER_NAME}</arg>
+<arg>${PASSWORD}</arg>
+</arguments>
+<kw name="Input Text If Element Is Visible" library="Keywords">
+<doc>Wait for the element is visible and input text to this element</doc>
+<arguments>
+<arg>${USERNAME_TXT}</arg>
+<arg>${username}</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="ExtendedSelenium2Library">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+</arguments>
+<status status="PASS" endtime="20181114 11:24:25.004" starttime="20181114 11:24:24.991"></status>
+</kw>
+<kw name="Input Text" library="ExtendedSelenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>${locator}</arg>
+<arg>${text}</arg>
+</arguments>
+<msg timestamp="20181114 11:24:25.005" level="INFO">Typing text '01672361998' into text field '//input[@id='UserName']'</msg>
+<status status="PASS" endtime="20181114 11:24:25.086" starttime="20181114 11:24:25.004"></status>
+</kw>
+<status status="PASS" endtime="20181114 11:24:25.086" starttime="20181114 11:24:24.990"></status>
+</kw>
+<kw name="Input Text If Element Is Visible" library="Keywords">
+<doc>Wait for the element is visible and input text to this element</doc>
+<arguments>
+<arg>${PASSWORD_TXT}</arg>
+<arg>${password}</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="ExtendedSelenium2Library">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+</arguments>
+<status status="PASS" endtime="20181114 11:24:25.099" starttime="20181114 11:24:25.087"></status>
+</kw>
+<kw name="Input Text" library="ExtendedSelenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>${locator}</arg>
+<arg>${text}</arg>
+</arguments>
+<msg timestamp="20181114 11:24:25.100" level="INFO">Typing text '12345678' into text field '//input[@id='Password']'</msg>
+<status status="PASS" endtime="20181114 11:24:25.168" starttime="20181114 11:24:25.099"></status>
+</kw>
+<status status="PASS" endtime="20181114 11:24:25.168" starttime="20181114 11:24:25.087"></status>
+</kw>
+<kw name="Click If Element Is Visible" library="Keywords">
+<doc>Wait for the element is visible and click this element</doc>
+<arguments>
+<arg>${LOGIN_BUTTON}</arg>
+</arguments>
+<kw name="Wait Until Element Is Visible" library="ExtendedSelenium2Library">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${locator}</arg>
+<arg>${timeout}</arg>
+</arguments>
+<status status="PASS" endtime="20181114 11:24:25.181" starttime="20181114 11:24:25.169"></status>
+</kw>
+<kw name="Click Element" library="ExtendedSelenium2Library">
+<doc>Clicks an element identified by ``locator``.</doc>
+<arguments>
+<arg>${locator}</arg>
+</arguments>
+<msg timestamp="20181114 11:24:25.182" level="INFO">Clicking element '//button[normalize-space()='Đăng nhập']'.</msg>
+<status status="PASS" endtime="20181114 11:25:04.753" starttime="20181114 11:24:25.181"></status>
+</kw>
+<status status="PASS" endtime="20181114 11:25:04.753" starttime="20181114 11:24:25.168"></status>
+</kw>
+<status status="PASS" endtime="20181114 11:25:04.753" starttime="20181114 11:24:24.989"></status>
+</kw>
+<kw name="Verify Username Display On Home Page" library="HomePage_Keyword">
+<kw name="Wait Until Element Is Visible" library="ExtendedSelenium2Library">
+<doc>Waits until element specified with `locator` is visible.</doc>
+<arguments>
+<arg>${USERNAME_LABLE}</arg>
+<arg>${MEDIUM_TIME_WAIT}</arg>
+</arguments>
+<status status="PASS" endtime="20181114 11:25:04.791" starttime="20181114 11:25:04.753"></status>
+</kw>
+<status status="PASS" endtime="20181114 11:25:04.791" starttime="20181114 11:25:04.753"></status>
+</kw>
+<doc>Verify that user can login to main page</doc>
+<status status="PASS" endtime="20181114 11:25:04.791" critical="yes" starttime="20181114 11:24:24.989"></status>
+</test>
+<status status="PASS" endtime="20181114 11:25:04.795" starttime="20181114 11:24:22.702"></status>
+</suite>
+<kw type="teardown" name="Close All Browsers" library="ExtendedSelenium2Library">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" endtime="20181114 11:25:07.392" starttime="20181114 11:25:04.796"></status>
+</kw>
+<status status="PASS" endtime="20181114 11:25:07.392" starttime="20181114 11:24:15.052"></status>
+</suite>
+<status status="PASS" endtime="20181114 11:25:07.404" starttime="20181114 11:24:15.052"></status>
+</suite>
+<status status="PASS" endtime="20181114 11:25:07.411" starttime="20181114 11:24:15.030"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="0" pass="2">Critical Tests</stat>
+<stat fail="0" pass="2">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat fail="0" id="s1" name="AutomationDEMO" pass="2">AutomationDEMO</stat>
+<stat fail="0" id="s1-s1" name="UI" pass="2">AutomationDEMO.UI</stat>
+<stat fail="0" id="s1-s1-s1" name="TestCase" pass="2">AutomationDEMO.UI.TestCase</stat>
+<stat fail="0" id="s1-s1-s1-s1" name="LoginPage" pass="2">AutomationDEMO.UI.TestCase.LoginPage</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
