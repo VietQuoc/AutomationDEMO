@@ -7,11 +7,15 @@ ${HOME_PAGE_URL}      https://gamevui.vn/
 
 #Xpath
 ${CLOSE_AD_BUTTON}          //a[normalize-space()='Đóng X']
+
 ${HOME_PAGE_TITLE}          //a[normalize-space()='Trang chủ']
 ${USERNAME_LABLE}           //span[@class='user-name']
+${USERNAME_BUTTON}          //a[@class='nav-use']
+${LOGOUT_BUTTON}            //a[@class='nav-out']
 ${ALL_CATEGORY_BUTTON}      //a[normalize-space()='Danh mục']
 ${ALL_CATEGORY_LINK}        //ul[@class='navigation']//a
 ${CATEGORY_GAME_LINK}       //a[contains(@title,'Game') and contains(normalize-space(),'$$')]
+
 ${CATEGORY_PAGE_HEADING}    //h1[@class='heading' and contains(normalize-space(),'$$')]
 *** Keywords ***
 Goto Home Page
@@ -57,4 +61,11 @@ Verify That Category Page Loaded Successfully
     
     ${category_page_header}=    Replace String With Given Text    ${CATEGORY_PAGE_HEADING}    ${category_name}
     Wait Until Element Is Visible    ${category_page_header}    ${MEDIUM_TIME_WAIT}
+    
+Go To Profile Page
+    [Documentation]    Navigate To Profile Page
+    Wait Until Element Is Visible    ${USERNAME_LABLE}    ${SHORT_TIME_WAIT}
+    Mouse Over    ${USERNAME_LABLE}
+    Click If Element Is Visible    ${USERNAME_BUTTON}
+    
     
