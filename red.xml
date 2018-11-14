@@ -8,7 +8,7 @@
     <pythonpath/>
     <classpath/>
     <excludedForValidation>
-        <excludedPath path="UI/TestCase/Test.robot"/>
+        <excludedPath path="UI/TestCase/HomePage.robot"/>
         <excludedPath path=""/>
     </excludedForValidation>
     <isValidatedFileSizeCheckingEnabled>true</isValidatedFileSizeCheckingEnabled>

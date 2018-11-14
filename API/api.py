@@ -22,7 +22,7 @@ def update_account_info_via_api(cookie, title, name, location, day=30, month=12,
     r = ses.post(url='https://gamevui.vn/account/profile',data=datas)
     print(r.status_code)
     
-def get_cookie(username, password):
+def get_cookie_api(username, password):
     ses = requests.Session()
     headers = {'Content-Type': 'application/x-www-form-urlencoded'}
     r = ses.post('https://gamevui.vn/account/login', data='UserName='+username+'&Password='+password, allow_redirects=False, headers=headers)
