@@ -9,7 +9,6 @@ ${NUMBER_CATEGORY}          109
 
 *** Test Cases ***
 Navigate To Home Page And verify It Loaded Successfully
-    # Update Account Info Via Api    ${COOKIE}    Chú   Nguyen Viet Quoc    Đà Nẵng - Quảng Nam
     Goto Home Page
     Verify All Category Of Game Display When Hover To Category Button    ${NUMBER_CATEGORY}
 

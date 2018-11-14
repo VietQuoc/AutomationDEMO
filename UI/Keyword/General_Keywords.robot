@@ -1,6 +1,7 @@
 *** Settings ***
 Library    ExtendedSelenium2Library
 Library    String
+Library    DateTime
 
 *** Keywords ***
 Input Text If Element Is Visible
@@ -31,3 +32,27 @@ Replace String With Given Text
     
     ${new_string}=    Replace String    ${string}    $$    ${text}    
     [Return]    ${new_string}
+    
+GenerateRandonDateOfBirth 
+    [Arguments]    ${minimumAge}=13
+    # ${date}=    Get Current Date
+    # ${currentTimeStamp}=     Convert Date    ${date}    epoch    exclude_millis=yes
+    # ${currentYear}=    Convert Date    ${date}    result_format=%Y
+     Log    asdjkaskd    
+    # ${compareYear}=    Convert To Integer    ${currentYear}
+    # ${numberYears}=    Convert To Integer    ${minimumAge}
+    # ${compareYear}=    Run Keyword    Evaluate    ${compareYear}-${numberYears}    
+    # ${secsPerYear}=    Set Variable    31557600
+    # ${subtractSeconds}=    Run Keyword    Evaluate    ${minimumAge}*${secsPerYear}
+    # ${minAgeTimeStamp}=    Run Keyword    Evaluate    ${currentTimeStamp}-${subtractSeconds}
+    # ${execStr}=    Set Variable    random.randint(1, ${minAgeTimeStamp})
+ 
+    # :FOR ${i} IN RANGE 100
+    # \ ${randDate}= Evaluate ${execStr} modules=random,sys
+    # \ ${randomYear}= Convert Date ${randDate} result_format=%Y
+    # \ Exit For Loop If ${compareYear} > ${randomYear}
+    # ${randYear}= Convert Date ${randDate} result_format=%Y
+    # ${randMonth}= Convert Date ${randDate} result_format=%m
+    # ${randDay}= Convert Date ${randDate} result_format=%d
+ 
+     # [Return] ${randYear} ${randMonth} ${randDay}

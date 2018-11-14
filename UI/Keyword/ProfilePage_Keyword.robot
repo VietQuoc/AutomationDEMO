@@ -28,16 +28,18 @@ ${ACCOUNT_YEAR_SELECT}      //select[@id='BirthdayYear']//option[@selected and n
 ${ACCOUNT_GENDER_SELECT}    //label[normalize-space()='$$']//input[@id='Gender']
 ${ACCOUNT_LOCATION}         //input[@id='Location']
 *** Keywords ***
+#Action Keyword
+Navigate To Account Editor Page
+    Click If Element Is Visible    ${HOMEPAGE_BUTTON}
+    Click If Element Is Visible    ${MENU_ACCOUNT_BUTTON}
+    
+#Verify Keyword
 Verify Profile Page Loaded Successfully
     [Documentation]    Verify All control on Profile Page visible
     
     Run Keyword And Continue On Failure    Wait Until Element Is Visible    ${AVATA_ICON}         ${SHORT_TIME_WAIT}
     Run Keyword And Continue On Failure    Wait Until Element Is Visible    ${PROFILE_MENU}       ${SHORT_TIME_WAIT}
     Run Keyword And Continue On Failure    Wait Until Element Is Visible    ${HOMEPAGE_BUTTON}    ${SHORT_TIME_WAIT}
-    
-Navigate To Account Editor Page
-    Click If Element Is Visible    ${HOMEPAGE_BUTTON}
-    Click If Element Is Visible    ${MENU_ACCOUNT_BUTTON}
 
 Verify Account Editor Page Loaded Successfully
     [Documentation]    Verify All control on Editor Page visible
@@ -53,7 +55,58 @@ Verify Account Editor Page Loaded Successfully
     ${gender_select_locator}=    Replace String With Given Text    ${ACCOUNT_GENDER_SELECT}    Nữ
     Run Keyword And Continue On Failure    Wait Until Element Is Visible    ${gender_select_locator}    ${SHORT_TIME_WAIT}
     
-Verify All Info On Account Editor Page Correctly
-    [Documentation]    Check all info and data
+Verify Account Name On Editor Page
+    [Arguments]    ${name}
     
+    Wait Until Element Is Visible    ${ACCOUNT_NAME}
+    ${locator_text}=    Get Text    ${ACCOUNT_NAME}
+    Should Be Equal As Strings    ${name}    ${locator_text}    
     
+Verify Account Title On Editor Page
+    [Arguments]    ${title}
+    
+    ${title_locator}=    Replace String With Given Text    ${ACCOUNT_TITLE_SELECT}    ${title}
+    Wait Until Element Is Visible    ${title_locator}
+    
+Verify Account BirthDay On Editor Page
+    [Arguments]    ${day}
+    
+    ${day_locator}=    Replace String With Given Text    ${ACCOUNT_DAY_SELECT}    ${day}
+    Wait Until Element Is Visible    ${day_locator}
+    
+Verify Account BirthDay Month On Editor Page
+    [Arguments]    ${month}
+    
+    ${month_locator}=    Replace String With Given Text    ${ACCOUNT_MONTH_SELECT}    ${month}
+    Wait Until Element Is Visible    ${month_locator}
+    
+Verify Account BirthDay Year On Editor Page
+    [Arguments]    ${year}
+    
+    ${year_locator}=    Replace String With Given Text    ${ACCOUNT_YEAR_SELECT}    ${year}
+    Wait Until Element Is Visible    ${year_locator}
+    
+Verify Account Gender On Editor Page
+    [Arguments]    ${gender}
+    
+    ${gender_locator}=    Replace String With Given Text    ${ACCOUNT_GENDER_SELECT}    ${gender}
+    Wait Until Element Is Visible    ${gender_locator}
+    Element Attribute Should Contain    ${gender_locator}@checked    checked
+    
+Verify Account Location On Editor Page
+    [Arguments]    ${location}
+    
+    Wait Until Element Is Visible    ${ACCOUNT_LOCATION}
+    Element Should Contain    ${ACCOUNT_LOCATION}    ${location}    
+    
+Verify All Info On Account Editor Correctly
+    [Documentation]    Verify all info: name, title, day, month, year, gender, location
+    [Arguments]    ${name}    ${title}    ${day}    ${month}    ${year}    ${gender}    ${location}
+    
+    Verify Account Name On Editor Page    ${name}
+    Verify Account Title On Editor Page    ${title}
+    Verify Account BirthDay On Editor Page    ${day}
+    Verify Account BirthDay Month On Editor Page    ${month}
+    Verify Account BirthDay Year On Editor Page    ${year}
+    Verify Account Gender On Editor Page    ${gender}
+    Verify Account Location On Editor Page    ${location}
