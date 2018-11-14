@@ -1,5 +1,6 @@
 *** Settings ***
 Library    ExtendedSelenium2Library
+Library    String
 
 *** Keywords ***
 Input Text If Element Is Visible
@@ -23,3 +24,10 @@ Verify Color Of Css Element
     ${element}=    Get Webelement    ${locator}
     ${element_color}=    Call Method    ${element}    value_of_css_property    background-color
     Should Be Equal As Strings    ${color}    ${element_color}
+
+Replace String With Given Text
+    [Documentation]    Use keyword for some case of strings and locators which have the same structure
+    [Arguments]    ${string}    ${text}
+    
+    ${new_string}=    Replace String    ${string}    $$    ${text}    
+    [Return]    ${new_string}

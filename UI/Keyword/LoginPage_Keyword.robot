@@ -1,6 +1,6 @@
 *** Settings ***
 Library   ExtendedSelenium2Library
-Resource    Keywords.robot
+Resource    General_Keywords.robot
 *** Variables ***
 # URL
 ${LOGIN_PAGE_URL}           https://gamevui.vn/account/login
