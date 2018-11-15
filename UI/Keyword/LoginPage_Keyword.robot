@@ -22,9 +22,19 @@ ${GOOGLE_LOGIN_BUTTON_COLOR}      rgba(66, 133, 244, 1)
 ${FACEBOOK_LOGIN_BUTTON_COLOR}    rgba(59, 89, 152, 1)
 
 *** Keywords ***
+#Action Keyword
 Goto Login Page
     Go To    ${LOGIN_PAGE_URL}
 
+Log In
+    [Documentation]    Log in to this page via UI with given username and password
+    [Arguments]    ${username}    ${password}
+    
+    Input Text If Element Is Visible    ${USERNAME_TXT}    ${username}
+    Input Text If Element Is Visible    ${PASSWORD_TXT}    ${password}
+    Click If Element Is Visible    ${LOGIN_BUTTON}
+    
+#Verify Keyword
 Verify All Control Show On Login Page
     [Documentation]    Verify all control show on this page
     Run Keyword And Continue On Failure    Wait Until Element Is Visible    ${LOGIN_PAGE_HEADER}    ${MEDIUM_TIME_WAIT}
@@ -43,12 +53,3 @@ Verify Button Color On Login Page
     Run Keyword And Continue On Failure    Verify Color Of Css Element    ${LOGIN_BUTTON}             ${LOGIN_BUTTON_COLOR}
     Run Keyword And Continue On Failure    Verify Color Of Css Element    ${GOOGLE_LOGIN_BUTTON}      ${GOOGLE_LOGIN_BUTTON_COLOR}
     Run Keyword And Continue On Failure    Verify Color Of Css Element    ${FACEBOOK_LOGIN_BUTTON}    ${FACEBOOK_LOGIN_BUTTON_COLOR}
-
-Log In
-    [Documentation]    Log in to this page via UI with given username and password
-    [Arguments]    ${username}    ${password}
-    
-    Input Text If Element Is Visible    ${USERNAME_TXT}    ${username}
-    Input Text If Element Is Visible    ${PASSWORD_TXT}    ${password}
-    Click If Element Is Visible    ${LOGIN_BUTTON}
-    

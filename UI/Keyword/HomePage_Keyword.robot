@@ -18,6 +18,7 @@ ${CATEGORY_GAME_LINK}       //a[contains(@title,'Game') and contains(normalize-s
 
 ${CATEGORY_PAGE_HEADING}    //h1[@class='heading' and contains(normalize-space(),'$$')]
 *** Keywords ***
+#Action Keyword
 Goto Home Page
     Go To    ${HOME_PAGE_URL}
     Wait Until Element Is Visible    ${HOME_PAGE_TITLE}    ${SHORT_TIME_WAIT}
@@ -25,7 +26,23 @@ Goto Home Page
 Click Close Ad Button
     Wait Until Page Contains Element    ${CLOSE_AD_BUTTON}    ${SHORT_TIME_WAIT}
     Click Element    ${CLOSE_AD_BUTTON}
+
+Select Category Game
+    [Documentation]    Select Category with given name
+    [Arguments]    ${category_name}
     
+    Wait Until Element Is Visible    ${ALL_CATEGORY_BUTTON}    ${SHORT_TIME_WAIT}
+    Mouse Over    ${ALL_CATEGORY_BUTTON}
+    ${category_locator}=    Replace String With Given Text    ${CATEGORY_GAME_LINK}    ${category_name}
+    Click If Element Is Visible    ${category_locator}    
+
+Go To Profile Page From Home Page
+    [Documentation]    Navigate To Profile Page
+    Wait Until Element Is Visible    ${USERNAME_LABLE}    ${SHORT_TIME_WAIT}
+    Mouse Over    ${USERNAME_LABLE}
+    Click If Element Is Visible    ${USERNAME_BUTTON}
+    
+#Verify Keyword
 Verify Username Display On Home Page
     Wait Until Element Is Visible    ${USERNAME_LABLE}    ${MEDIUM_TIME_WAIT}
     
@@ -46,26 +63,10 @@ Verify All Category Of Game Display When Hover To Category Button
     ${list_item}=    Get Length    ${list_element}
     Should Be Equal As Integers    ${list_item}    ${number_cate}    
     
-Select Category Game
-    [Documentation]    Select Category with given name
-    [Arguments]    ${category_name}
-    
-    Wait Until Element Is Visible    ${ALL_CATEGORY_BUTTON}    ${SHORT_TIME_WAIT}
-    Mouse Over    ${ALL_CATEGORY_BUTTON}
-    ${category_locator}=    Replace String With Given Text    ${CATEGORY_GAME_LINK}    ${category_name}
-    Click If Element Is Visible    ${category_locator}    
-    
 Verify That Category Page Loaded Successfully
     [Documentation]    Verify Category page load with correct header
     [Arguments]    ${category_name}
     
     ${category_page_header}=    Replace String With Given Text    ${CATEGORY_PAGE_HEADING}    ${category_name}
     Wait Until Element Is Visible    ${category_page_header}    ${MEDIUM_TIME_WAIT}
-    
-Go To Profile Page
-    [Documentation]    Navigate To Profile Page
-    Wait Until Element Is Visible    ${USERNAME_LABLE}    ${SHORT_TIME_WAIT}
-    Mouse Over    ${USERNAME_LABLE}
-    Click If Element Is Visible    ${USERNAME_BUTTON}
-    
     

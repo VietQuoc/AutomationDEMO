@@ -4,14 +4,15 @@ Resource    General_Keywords.robot
 
 *** Variables ***
 #URL
-${PROFILE_PAGE_URL}    https://gamevui.vn/member
+${PROFILE_PAGE_URL}        https://gamevui.vn/member
+${ACCOUNT_EDITOR_PAGE}     https://gamevui.vn/account/profile
 
 #XPATH
 ${AVATA_ICON}              //div[@class='avatar']
 ${PROFILE_MENU}            //a[contains(@class,'menu')]
 ${HOMEPAGE_BUTTON}         //a[@title='Trang chủ']
 ${MENU_HOMEPAGE_BUTTON}    //a[@class='hdnav']
-${MENU_ACCOUNT_BUTTON}     //a[normalize-space()='Tài khoản']
+${MENU_ACCOUNT_BUTTON}     //a[contains(normalize-space(),'Tài kho')]
 ${MENU_INFO_BUTTON}        //a[normalize-space()='Thông tin']
 ${MENU_LOGOUT_BUTTON}      //li[@class='logout']//a[normalize-space()='Đăng xuất']
 
@@ -22,16 +23,19 @@ ${ACCOUNT_TITLE_SELECT}     //select[@id='Title']//option[@selected and normaliz
 ${ACCOUNT_DAY}              //select[@id='BirthdayDay']
 ${ACCOUNT_DAY_SELECT}       //select[@id='BirthdayDay']//option[@selected and normalize-space()='$$']
 ${ACCOUNT_MONTH}            //select[@id='BirthdayMonth']
-${ACCOUNT_MONTH_SELECT}     //select[@id='BirthdayMonth']//option[@selected and normalize-space()='$$']
+${ACCOUNT_MONTH_SELECT}     //select[@id='BirthdayMonth']//option[@selected and contains(normalize-space(),'$$')]
 ${ACCOUNT_YEAR}             //select[@id='BirthdayYear']
 ${ACCOUNT_YEAR_SELECT}      //select[@id='BirthdayYear']//option[@selected and normalize-space()='$$']
 ${ACCOUNT_GENDER_SELECT}    //label[normalize-space()='$$']//input[@id='Gender']
 ${ACCOUNT_LOCATION}         //input[@id='Location']
 *** Keywords ***
 #Action Keyword
-Navigate To Account Editor Page
-    Click If Element Is Visible    ${HOMEPAGE_BUTTON}
+Navigate To Account Editor Page From Profile Page
+    Click If Element Is Visible    ${PROFILE_MENU}
     Click If Element Is Visible    ${MENU_ACCOUNT_BUTTON}
+    
+Navigate To Account Editor Page From URL
+    Go To    ${ACCOUNT_EDITOR_PAGE}
     
 #Verify Keyword
 Verify Profile Page Loaded Successfully
@@ -91,22 +95,23 @@ Verify Account Gender On Editor Page
     
     ${gender_locator}=    Replace String With Given Text    ${ACCOUNT_GENDER_SELECT}    ${gender}
     Wait Until Element Is Visible    ${gender_locator}
-    Element Attribute Should Contain    ${gender_locator}@checked    checked
+    Element Attribute Should Contain    ${gender_locator}@checked    true    
     
 Verify Account Location On Editor Page
     [Arguments]    ${location}
     
     Wait Until Element Is Visible    ${ACCOUNT_LOCATION}
-    Element Should Contain    ${ACCOUNT_LOCATION}    ${location}    
+    ${locator_location}=    Get Element Attribute    ${ACCOUNT_LOCATION}@value
+    Should Be Equal As Strings    ${locator_location}    ${location}    
     
 Verify All Info On Account Editor Correctly
     [Documentation]    Verify all info: name, title, day, month, year, gender, location
     [Arguments]    ${name}    ${title}    ${day}    ${month}    ${year}    ${gender}    ${location}
     
-    Verify Account Name On Editor Page    ${name}
-    Verify Account Title On Editor Page    ${title}
-    Verify Account BirthDay On Editor Page    ${day}
-    Verify Account BirthDay Month On Editor Page    ${month}
-    Verify Account BirthDay Year On Editor Page    ${year}
-    Verify Account Gender On Editor Page    ${gender}
-    Verify Account Location On Editor Page    ${location}
+    Run Keyword And Continue On Failure    Verify Account Name On Editor Page    ${name}
+    Run Keyword And Continue On Failure    Verify Account Title On Editor Page    ${title}
+    Run Keyword And Continue On Failure    Verify Account BirthDay On Editor Page    ${day}
+    Run Keyword And Continue On Failure    Verify Account BirthDay Month On Editor Page    ${month}
+    Run Keyword And Continue On Failure    Verify Account BirthDay Year On Editor Page    ${year}
+    Run Keyword And Continue On Failure    Verify Account Gender On Editor Page    ${gender}
+    Run Keyword And Continue On Failure    Verify Account Location On Editor Page    ${location}

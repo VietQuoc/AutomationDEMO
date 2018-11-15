@@ -2,6 +2,7 @@
 Library     ExtendedSelenium2Library
 Resource    ../Keyword/LoginPage_Keyword.robot
 Resource    ../Keyword/HomePage_Keyword.robot
+Force Tags    all
 
 *** Test Cases ***
 Verify UI On Login Page

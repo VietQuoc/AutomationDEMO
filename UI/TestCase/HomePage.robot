@@ -2,6 +2,7 @@
 Library    ExtendedSelenium2Library
 Library    ../../API/api.py
 Resource    ../Keyword/HomePage_Keyword.robot
+Force Tags    all
 
 *** Variables ***
 #Data

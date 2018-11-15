@@ -3,8 +3,8 @@
     <configVersion>2</configVersion>
     <relativeTo>WORKSPACE</relativeTo>
     <referencedLibrary type="PYTHON" name="api" path="C:/Users/QuocNV4/Desktop/All/Repo/AutomationDEMO/API"/>
-    <referencedLibrary type="PYTHON" name="Selenium2Library" path="C:/Python27/Lib/site-packages"/>
     <referencedLibrary type="PYTHON" name="ExtendedSelenium2Library" path="C:/Python27/Lib/site-packages"/>
+    <referencedLibrary type="PYTHON" name="FakerLibrary" path="C:/Python27/Lib/site-packages/FakerLibrary"/>
     <pythonpath/>
     <classpath/>
     <excludedForValidation>
