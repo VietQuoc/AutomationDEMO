@@ -1,5 +1,5 @@
 *** Settings ***
-Library     ExtendedSelenium2Library
+Library     Selenium2Library    
 Resource    ../Keyword/LoginPage_Keyword.robot
 Resource    ../Keyword/HomePage_Keyword.robot
 Force Tags    all

@@ -1,5 +1,5 @@
 *** Settings ***
-Library    ExtendedSelenium2Library
+Library    Selenium2Library    
 Library    ../../API/api.py
 Resource    ../Keyword/HomePage_Keyword.robot
 Force Tags    all

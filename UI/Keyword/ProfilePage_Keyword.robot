@@ -1,5 +1,5 @@
 *** Settings ***
-Library    ExtendedSelenium2Library
+Library    Selenium2Library    
 Resource    General_Keywords.robot
 
 *** Variables ***
@@ -32,6 +32,8 @@ ${ACCOUNT_LOCATION}         //input[@id='Location']
 #Action Keyword
 Navigate To Account Editor Page From Profile Page
     Click If Element Is Visible    ${PROFILE_MENU}
+    Comment    Sleep 0.1s make sure element can be clicked on some case!
+    Sleep    0.1s    
     Click If Element Is Visible    ${MENU_ACCOUNT_BUTTON}
     
 Navigate To Account Editor Page From URL
@@ -95,13 +97,13 @@ Verify Account Gender On Editor Page
     
     ${gender_locator}=    Replace String With Given Text    ${ACCOUNT_GENDER_SELECT}    ${gender}
     Wait Until Element Is Visible    ${gender_locator}
-    Element Attribute Should Contain    ${gender_locator}@checked    true    
+    Element Attribute Value Should Be    ${gender_locator}    checked    true    
     
 Verify Account Location On Editor Page
     [Arguments]    ${location}
     
     Wait Until Element Is Visible    ${ACCOUNT_LOCATION}
-    ${locator_location}=    Get Element Attribute    ${ACCOUNT_LOCATION}@value
+    ${locator_location}=    Get Element Attribute    ${ACCOUNT_LOCATION}    value
     Should Be Equal As Strings    ${locator_location}    ${location}    
     
 Verify All Info On Account Editor Correctly

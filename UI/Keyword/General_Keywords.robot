@@ -1,5 +1,5 @@
 *** Settings ***
-Library    ExtendedSelenium2Library
+Library    Selenium2Library    
 Library    String
 Library    DateTime
 
@@ -34,4 +34,4 @@ Verify Color Of Css Element
     Wait Until Element Is Visible    ${locator}  
     ${element}=    Get Webelement    ${locator}
     ${element_color}=    Call Method    ${element}    value_of_css_property    background-color
-    Should Be Equal As Strings    ${color}    ${element_color}
+    Should Contain    ${element_color}    ${color}    

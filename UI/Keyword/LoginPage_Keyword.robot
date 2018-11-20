@@ -1,5 +1,5 @@
 *** Settings ***
-Library   ExtendedSelenium2Library
+Library   Selenium2Library    
 Resource    General_Keywords.robot
 *** Variables ***
 # URL
@@ -17,9 +17,9 @@ ${SIGNUP_LINK}              //a[normalize-space()='Đăng ký']
 ${FORGET_USER_LINK}         //a[normalize-space()='Lấy lại tài khoản?']
 
 #COLOR
-${LOGIN_BUTTON_COLOR}             rgba(218, 37, 28, 1)
-${GOOGLE_LOGIN_BUTTON_COLOR}      rgba(66, 133, 244, 1)
-${FACEBOOK_LOGIN_BUTTON_COLOR}    rgba(59, 89, 152, 1)
+${LOGIN_BUTTON_COLOR}             218, 37, 28
+${GOOGLE_LOGIN_BUTTON_COLOR}      66, 133, 244
+${FACEBOOK_LOGIN_BUTTON_COLOR}    59, 89, 152
 
 *** Keywords ***
 #Action Keyword

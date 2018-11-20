@@ -1,5 +1,5 @@
 *** Settings ***
-Library    ExtendedSelenium2Library
+Library    Selenium2Library    
 Resource    General_Keywords.robot
 *** Variables ***
 #URL
